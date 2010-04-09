@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "br-cnpj"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Calcules and validates given CNPJ}
+    gem.description = %Q{no descripton yet}
     gem.email = "bbcoimbra@gmail.com"
     gem.homepage = "http://github.com/bbcoimbra/br-cnpj"
     gem.authors = ["Bruno Coimbra"]
@@ -17,6 +17,10 @@ begin
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
+
+require 'rake/extensiontask'
+Rake::ExtensionTask.new('CNPJ')
+CLEAN.include('lib/**/*.so')
 
 require 'spec/rake/spectask'
 Spec::Rake::SpecTask.new(:spec) do |spec|

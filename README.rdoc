@@ -1,6 +1,6 @@
 = br-cnpj
 
-Description goes here.
+Calcules and validates Brazilian CNPJ
 
 == Note on Patches/Pull Requests
  

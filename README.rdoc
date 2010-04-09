@@ -4,26 +4,26 @@ Lib implementada em C (gera uma lib compilada nativamente) que calcula e valida 
 
 == Instalação
 
-sudo gem install br-cnpj
+ sudo gem install br-cnpj
 
 == Exemplos
 
-require 'rubygems'
-require 'br/cnpj'
+ require 'rubygems'
+ require 'br/cnpj'
 
-BR::CNPJ.valid? '00000000000191'
- => true
+ BR::CNPJ.valid? '00000000000191'
+  => true
 
-BR::CNPJ.valid? 191
- => true
+ BR::CNPJ.valid? 191
+  => true
 
-BR::CNPJ.valid? 192
- => false
+ BR::CNPJ.valid? 192
+  => false
 
-raiz = 0
-filial = 1
-BR::CNPJ.new(raiz, filial).to_s
- => '00000000000191'
+ raiz = 0
+ filial = 1
+ BR::CNPJ.new(raiz, filial).to_s
+  => '00000000000191'
 
 
 

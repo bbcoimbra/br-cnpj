@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "br-cnpj"
     gem.summary = %Q{Calcules and validates given CNPJ}
-    gem.description = %Q{no descripton yet}
+    gem.description = %Q{Lib implemented in C that calculates and validates CNPJ.}
     gem.email = "bbcoimbra@gmail.com"
     gem.homepage = "http://github.com/bbcoimbra/br-cnpj"
     gem.authors = ["Bruno Coimbra"]

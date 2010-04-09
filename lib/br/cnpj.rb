@@ -13,5 +13,13 @@ module BR
         orig_valid?(cnpj)
       end
     end
+
+    def to_i
+      @raiz * 1_000_000 + @filial * 100 + @verif
+    end
+
+    def to_s
+      "%014d" % to_i
+    end
   end
 end

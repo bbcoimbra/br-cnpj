@@ -2,7 +2,7 @@
 
 Lib implementada em C (gera uma lib compilada nativamente) que calcula e valida CNPJs.
 
-== Instalação
+== InstalaÃ§Ã£o
 
  sudo gem install br-cnpj
 

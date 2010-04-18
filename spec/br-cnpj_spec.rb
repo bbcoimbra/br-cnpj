@@ -95,7 +95,35 @@ module BR
       end
 
     end
-        
+     
+    context 'when to_s' do
+      
+      it "should return a String" do
+        CNPJ.new(191).to_s.should be_kind_of(String)
+      end
+      
+      it 'should return a String with 14 chars' do
+        CNPJ.new(191).to_s.should have(14).items
+      end
+      
+      it 'should return the CNPJ in string' do
+        CNPJ.new(272).to_s.should == '00000000000272'
+      end
+      
+      it 'should return the CNPJ in String' do
+        CNPJ.new(191).to_s.should == '00000000000191'
+      end
+      
+    end 
+    
+    context 'when to_i' do
+      
+      it 'should return a Fixnum' do
+        CNPJ.new('191').to_i.should be_kind_of(Fixnum)
+      end
+      
+    end
+       
   end
   
 end

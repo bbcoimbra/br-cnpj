@@ -20,7 +20,7 @@ module BR
         # Desformata o Cnpj formatado
         #
         # Cnpj.desformatar("02.716.485/0001-40") # => "02716485000140"
-        # Cnpj.unformat("00.086.001/0001-04") # => "00086001000104"
+        # Cnpj.unformat("00.086.001/0001-04")    # => "00086001000104"
         #
         def unformat(cnpj)
            cnpj.gsub(/\D/, '')
@@ -42,19 +42,24 @@ module BR
         end
         
     end
+    attr_accessor :filial, :valid, :raiz, :verif
     
     # Return if the instance CNPJ is valid?
     #
     # Cnpj.new(191).valid? # => true
     #
     def valid?
-      @valid
+      valid
     end
     
     def to_i
-      @raiz * 1_000_000 + @filial * 100 + @verif
+      raiz * 1_000_000 + filial * 100 + verif
     end
 
+    # Return the CNPJ with 14 characters
+    #
+    # CNPJ.new(191).to_s # => '00000000000191'
+    #
     def to_s
       "%014d" % to_i
     end

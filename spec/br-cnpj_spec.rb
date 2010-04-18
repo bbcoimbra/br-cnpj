@@ -3,7 +3,23 @@ require 'spec_helper'
 module BR
   
   describe CNPJ do
+    
+    context 'when validate instances' do
       
+      it 'should return true for the cnpj valid' do
+        VALID_CNPJS_INTEGER.each do |valid_cnpj|
+          CNPJ.new(valid_cnpj).valid?.should be_true
+        end
+      end
+      
+      it 'should return false the cnpj invalid' do
+        INVALID_CNPJS_INTEGER.each do |invalid_cnpj|
+          CNPJ.new(invalid_cnpj).valid?.should be_false
+        end
+      end
+      
+    end
+    
     context "when Fixnum" do
 
       it "should return true for valid cnpjs" do
@@ -79,7 +95,7 @@ module BR
       end
 
     end
-    
+        
   end
   
 end

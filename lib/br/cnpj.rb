@@ -31,7 +31,7 @@ module BR
         # Retorna falso se o Cnpj for inválido
         #
         # CNPJ.valid?(191)           # => true
-        # CNPJ.valid?(123456789101)
+        # CNPJ.valid?(123456789101)  # => false
         #
         def valid?(cnpj)
           if cnpj.is_a? String
@@ -41,6 +41,14 @@ module BR
           end
         end
         
+    end
+    
+    # Return if the instance CNPJ is valid?
+    #
+    # Cnpj.new(191).valid? # => true
+    #
+    def valid?
+      @valid
     end
     
     def to_i

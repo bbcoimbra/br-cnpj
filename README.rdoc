@@ -25,6 +25,17 @@ Lib implementada em C (gera uma lib compilada nativamente) que calcula e valida 
  BR::CNPJ.new(raiz, filial).to_s
   => '00000000000191'
 
+ BR::CNPJ.new(191).valid?
+  => true
+
+ BR::CNPJ.new(1234567891011).valid?
+  => false
+
+ BR::CNPJ.format(191)
+  => '00.000.000/0001-91'
+
+ BR::CNPJ.unformat('00.000.000/0001-91')
+  => '00000000000191'
 
 
 == Copyright

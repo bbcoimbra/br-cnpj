@@ -42,8 +42,8 @@ module BR
         end
         
     end
-    attr_accessor :filial, :valid, :raiz, :verif
-    
+    attr_reader :filial, :valid, :raiz, :verif
+
     # Return if the instance CNPJ is valid?
     #
     # Cnpj.new(191).valid? # => true

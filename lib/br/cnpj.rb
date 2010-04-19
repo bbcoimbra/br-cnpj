@@ -53,7 +53,7 @@ module BR
     end
     
     def to_i
-      raiz * 1_000_000 + filial * 100 + verif
+      @raiz * 1_000_000 + @filial * 100 + @verif
     end
 
     # Return the CNPJ with 14 characters

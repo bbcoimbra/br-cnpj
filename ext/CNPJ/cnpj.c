@@ -1,72 +1,72 @@
 #include <stdlib.h>
 #include "cnpj.h"
 
-#define DIGITO1 0
-#define DIGITO2 1
+#define DIGIT1 0
+#define DIGIT2 1
 
-long long calcula_digito_cnpj(int raiz, int filial){
-    return (long long)raiz*1000000 + filial*100 + calcula_digito(raiz, filial);
+long long calculate_cnpj_digit(int radix, int filial){
+    return (long long)radix*1000000 + filial*100 + calculate_digit(radix, filial);
 }
 
-int calcula_digito(int raiz, int filial){
-    int digito1=0, digito2=0, i;
+int calculate_digit(int radix, int filial){
+    int digit1=0, digit2=0, i;
     int vet[14];
-    int pesos[][13] = {{5,4,3,2,9,8,7,6,5,4,3,2,0},
+    int weights[][13] = {{5,4,3,2,9,8,7,6,5,4,3,2,0},
                        {6,5,4,3,2,9,8,7,6,5,4,3,2}};
     long long cnpj;
-    div_t divisao;
+    div_t division;
 
-    cnpj = (long long)raiz*1000000 + filial*100;
+    cnpj = (long long)radix*1000000 + filial*100;
     for (i=0;i<14;i++){
-        lldiv_t divisao;
+        lldiv_t division;
 
-        divisao = lldiv(cnpj,10);
-        vet[13-i] = (int) divisao.rem;
-        cnpj = divisao.quot;
+        division = lldiv(cnpj,10);
+        vet[13-i] = (int) division.rem;
+        cnpj = division.quot;
     }
     for(i=0;i<12;i++)
-        digito1 += vet[i] * pesos[DIGITO1][i];
-    divisao = div(digito1,11);
-    digito1 = divisao.rem<2 ? 0 : 11-divisao.rem;
-    vet[12]=digito1;
+        digit1 += vet[i] * weights[DIGIT1][i];
+    division = div(digit1,11);
+    digit1 = division.rem<2 ? 0 : 11-division.rem;
+    vet[12]=digit1;
     for(i=0;i<13;i++)
-        digito2 += vet[i] * pesos[DIGITO2][i];
-    divisao = div(digito2,11);
-    digito2 = divisao.rem<2 ? 0 : 11- divisao.rem;
+        digit2 += vet[i] * weights[DIGIT2][i];
+    division = div(digit2,11);
+    digit2 = division.rem<2 ? 0 : 11- division.rem;
 
-    return digito1*10 + digito2;
+    return digit1*10 + digit2;
 }
 
-int e_cnpj(long long cnpj_l){
-    int raiz, filial;
-    lldiv_t divisao;
+int is_cnpj(long long cnpj_l){
+    int radix, filial;
+    lldiv_t division;
 
-    divisao = lldiv(cnpj_l,1000000);
-    raiz = divisao.quot;
-    divisao = lldiv(divisao.rem,100);
-    filial=divisao.quot;
-    return cnpj_l == calcula_digito_cnpj(raiz, filial);
+    division = lldiv(cnpj_l,1000000);
+    radix = division.quot;
+    division = lldiv(division.rem,100);
+    filial=division.quot;
+    return cnpj_l == calculate_cnpj_digit(radix, filial);
 }
 
-int e_cgc(long long cgc_l){
-    if(e_cnpj(cgc_l)){
-        int pesos[]={2,1,2,1,2,1,2,1};
-        int acumulador=0, raiz=0, i=0;
-        lldiv_t divisao;
+int is_cgc(long long cgc_l){
+    if(is_cnpj(cgc_l)){
+        int weights[]={2,1,2,1,2,1,2,1};
+        int sum=0, radix=0, i=0;
+        lldiv_t division;
 
-        divisao = lldiv(cgc_l, 1000000);
-        raiz = (int)divisao.quot;
+        division = lldiv(cgc_l, 1000000);
+        radix = (int)division.quot;
         for (i=0;i<8;i++){
-            int produto=0;
+            int product=0;
 
-            divisao = lldiv(raiz,10);
-            produto = divisao.rem*pesos[7-i];
-            acumulador += (produto>9) ? produto-9 : produto;
-            raiz = divisao.quot;
+            division = lldiv(radix,10);
+            product = division.rem*weights[7-i];
+            sum += (product>9) ? product-9 : product;
+            radix = division.quot;
         }
 
-        divisao=lldiv(acumulador, 10);
-        return !divisao.rem;
+        division=lldiv(sum, 10);
+        return !division.rem;
     }
     return 0;
 }

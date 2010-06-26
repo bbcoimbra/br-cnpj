@@ -5,10 +5,10 @@
 extern "C" {
 #endif
 
-long long calcula_digito_cnpj(int raiz, int filial);
-int calcula_digito(int raiz, int filial);
-int e_cnpj(long long cnpj_l);
-int e_cgc(long long cgc_l);
+long long calculate_cnpj_digit(int radix, int filial);
+int calculate_digit(int radix, int filial);
+int is_cnpj(long long cnpj_l);
+int is_cgc(long long cgc_l);
 
 #ifdef __cplusplus
 }

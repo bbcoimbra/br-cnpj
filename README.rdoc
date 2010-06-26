@@ -1,12 +1,13 @@
 = br-cnpj
 
-Lib implementada em C (gera uma lib compilada nativamente) que calcula e valida CNPJs.
+Ruby native extension that calculates and validades CNPJ (Cadastro Nacional de
+Pessoas Jur�dicas)
 
-== Instalação
+== Install
 
  sudo gem install br-cnpj
 
-== Exemplos
+== Examples
 
  require 'rubygems'
  require 'br/cnpj'
@@ -20,9 +21,9 @@ Lib implementada em C (gera uma lib compilada nativamente) que calcula e valida 
  BR::CNPJ.valid? 192
   => false
 
- raiz = 0
+ radix = 0
  filial = 1
- BR::CNPJ.new(raiz, filial).to_s
+ BR::CNPJ.new(radix, filial).to_s
   => '00000000000191'
 
  BR::CNPJ.new(191).valid?

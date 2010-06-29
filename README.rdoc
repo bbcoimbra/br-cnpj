@@ -1,7 +1,7 @@
 = br-cnpj
 
 Ruby native extension that calculates and validades CNPJ (Cadastro Nacional de
-Pessoas Jurídicas)
+Pessoas JurÃ­dicas)
 
 == Install
 

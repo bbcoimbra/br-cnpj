@@ -1,10 +1,9 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "version"
 
 Gem::Specification.new do |s|
   s.name        = "br-cnpj"
-  s.version     = BR::CNPJ::VERSION
+  s.version     = "1.0.0"
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Bruno Coimbra"]
   s.email       = ["bbcoimbra@gmail.com"]

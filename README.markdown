@@ -44,4 +44,4 @@ BR::CNPJ.unformat('00.000.000/0001-91')
 
 ## Copyright
 
-Copyright (c) 2010 Bruno Coimbra. Veja o arquivo LICENSE para mais detalhes.
+MIT Licence. Copyright (c) 2009-2013 Bruno Coimbra. Veja o arquivo LICENSE para mais detalhes.

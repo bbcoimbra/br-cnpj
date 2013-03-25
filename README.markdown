@@ -1,4 +1,4 @@
-# br-cnpj ![travis-ci build status](https://secure.travis-ci.org/bbcoimbra/br-cnpj.png?branch=master)
+# br-cnpj ![travis-ci build status](https://secure.travis-ci.org/bbcoimbra/br-cnpj.png?branch=master) [![Code Climate](https://codeclimate.com/github/bbcoimbra/br-cnpj.png)](https://codeclimate.com/github/bbcoimbra/br-cnpj)
 
 Ruby native extension that calculates and validades CNPJ (Cadastro Nacional de
 Pessoas Jurídicas)

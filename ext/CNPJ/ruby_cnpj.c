@@ -25,8 +25,7 @@ static VALUE t_init_cnpj(int argc, VALUE *argv, VALUE self)
         if (rb_class_of(argv[0]) == rb_cString) 
             cnpj = NUM2LL(rb_str_to_inum(argv[0], 10, 0));
         else
-            if (rb_class_of(argv[0]) == rb_cFixnum ||
-                rb_class_of(argv[0]) == rb_cBignum)
+            if (rb_class_of(argv[0]) == rb_cInteger)
                 cnpj = NUM2LL(argv[0]);
 
         v = lldiv(cnpj, (long long)100);

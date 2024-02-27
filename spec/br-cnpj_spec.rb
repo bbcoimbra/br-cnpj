@@ -8,13 +8,13 @@ module BR
       
       it 'should return true for the cnpj valid' do
         VALID_CNPJS_INTEGER.each do |valid_cnpj|
-          CNPJ.new(valid_cnpj).valid?.should be_true
+          CNPJ.new(valid_cnpj).valid?.should be_truthy
         end
       end
       
       it 'should return false the cnpj invalid' do
         INVALID_CNPJS_INTEGER.each do |invalid_cnpj|
-          CNPJ.new(invalid_cnpj).valid?.should be_false
+          CNPJ.new(invalid_cnpj).valid?.should be_falsey
         end
       end
       
@@ -24,13 +24,13 @@ module BR
 
       it "should return true for valid cnpjs" do
         VALID_CNPJS_INTEGER.each do |valid_cnpj|
-          CNPJ.valid?(valid_cnpj).should be_true
+          CNPJ.valid?(valid_cnpj).should be_truthy
         end
       end
     
       it "should return false for invalid cnpjs" do
         INVALID_CNPJS_INTEGER.each do |invalid_cnpj|
-          CNPJ.valid?(invalid_cnpj).should be_false
+          CNPJ.valid?(invalid_cnpj).should be_falsey
         end
       end
     
@@ -40,13 +40,13 @@ module BR
     
       it "should return true for valid cnpjs" do
         VALID_CNPJS_STRING.each do |valid_cnpj|
-          CNPJ.valid?(valid_cnpj).should be_true
+          CNPJ.valid?(valid_cnpj).should be_truthy
         end
       end
     
       it "should return false for invalid cnpjs" do
         INVALID_CNPJS_STRING.each do |invalid_cnpj|
-          CNPJ.valid?(invalid_cnpj).should be_false
+          CNPJ.valid?(invalid_cnpj).should be_falsey
         end
       end
     
@@ -103,7 +103,7 @@ module BR
       end
       
       it 'should return a String with 14 chars' do
-        CNPJ.new(191).to_s.should have(14).items
+        CNPJ.new(191).to_s.size.should == 14
       end
       
       it 'should return the CNPJ in string' do

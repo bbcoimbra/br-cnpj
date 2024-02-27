@@ -1,7 +1,7 @@
-source :rubygems
+source "https://rubygems.org"
 
 group :development do
-	gem 'jeweler', '~> 1.4'
-	gem 'rake-compiler', '~> 0.7'
-	gem 'rspec', '~> 1.3'
+	gem 'jeweler', '~> 2.2'
+	gem 'rake-compiler', '~> 1.2'
+	gem 'rspec', '~> 3.13'
 end
